@@ -1,0 +1,13 @@
+name: microscopy
+channels:
+  - simpleitk
+  - conda-forge
+  - defaults
+dependencies:
+  - ipywidgets
+  - itk=5.0.1
+  - itkwidgets>=0.25.3
+  - jupyter
+  - matplotlib
+  - python=3.7.6
+  - simpleitk>=1.2.4
