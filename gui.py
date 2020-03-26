@@ -286,7 +286,7 @@ class PointDataAquisition(object):
                                                   min=0,
                                                   max=self.npa.shape[0]-1,
                                                   step=1,
-                                                  value = int((self.npa.shape[0]-1)/2),
+                                                  value = 0,
                                                   width='20em')
             self.slice_slider.observe(self.on_slice_slider_value_change, names='value')
             bx0 = widgets.Box(padding=7, children=[self.slice_slider])
