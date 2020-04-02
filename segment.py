@@ -31,6 +31,9 @@ def segmentSeriesBackgrounds(images, thresholds=[15000, 36000]):
     for these microscopy images, so that's the default.
     """
 
+    if not hasattr(images, '__iter__'):
+        return []
+
     bg=[]
     for i in images:
         bg.append(segmentBackground(i, thresholds))
