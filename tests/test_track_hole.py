@@ -1,13 +1,14 @@
 #! /usr/bin/env python
 
-import SimpleITK as sitk
 import unittest
-import math
+import math, os
+import SimpleITK as sitk
 
 import track_hole
 import draw_ellipses
 
 class TestTrackHole(unittest.TestCase):
+
     def test_track_hole(self):
         print ("\nTesting track_hole")
 
@@ -36,7 +37,9 @@ class TestTrackHole(unittest.TestCase):
         #print(ellipses)
         img = sitk.JoinSeries(slices)
         result = draw_ellipses.draw_ellipses(img, ellipses)
-        sitk.Show(result)
+
+        if "SITK_SHOW" in os.environ:
+          sitk.Show(result)
 
         count=0
         fail_count=0
