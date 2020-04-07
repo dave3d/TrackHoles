@@ -13,6 +13,7 @@ def track_hole(seed, radius, slices, first_z=0, debugFlag=False):
     all_ellipses = []
 
     z = 0
+    s = seed
 
     # loop through all the background images
     for b in slices:
@@ -23,7 +24,7 @@ def track_hole(seed, radius, slices, first_z=0, debugFlag=False):
             continue
         # invert the background image to get the hole label image
         label_img = 1-b
-        center, axes = find_ellipse.find_ellipse(label_img, seed, radius, debugFlag)
+        center, axes = find_ellipse.find_ellipse(label_img, s, radius, debugFlag)
 
         if center==None:
             print("Failed on seed", seed, "Z=",z)
