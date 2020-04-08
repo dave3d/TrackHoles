@@ -28,6 +28,5 @@ jobs:
             conda init bash
             bash
             ls
-            conda env create -f environment.yml
-            conda activate microscopy
+            conda install -f environment.yml
             ./run_tests.sh
