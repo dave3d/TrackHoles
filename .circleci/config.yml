@@ -24,11 +24,11 @@ jobs:
     - checkout
 
     - run:
-      name: Setup Anacoda
-      command: |
-        which python
-        python --version
-        which conda
-        conda --version
-        conda --list
-        conda update --all
+        name: Setup Anacoda
+        command: |
+          which python
+          python --version
+          which conda
+          conda --version
+          conda --list
+          conda update --all
