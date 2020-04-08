@@ -26,6 +26,7 @@ jobs:
             which conda
             conda update --all
             conda init bash
+            bash
             ls
             conda env create -f environment.yml
             conda activate microscopy
