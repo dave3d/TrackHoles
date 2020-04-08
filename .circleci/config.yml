@@ -20,15 +20,15 @@ jobs:
     docker:
       - image: continuumio/miniconda3
 
-  steps:
-    - checkout
+    steps:
+      - checkout
 
-    - run:
-        name: Setup Anacoda
-        command: |
-          which python
-          python --version
-          which conda
-          conda --version
-          conda --list
-          conda update --all
+      - run:
+          name: Setup Anacoda
+          command: |
+            which python
+            python --version
+            which conda
+            conda --version
+            conda --list
+            conda update --all
