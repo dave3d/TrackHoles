@@ -6,11 +6,6 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - welcome/run
   test:
     jobs:
       - mytest
@@ -29,6 +24,5 @@ jobs:
             which python
             python --version
             which conda
-            conda --list
             conda update --all
             ls
