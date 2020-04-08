@@ -26,3 +26,6 @@ jobs:
             which conda
             conda update --all
             ls
+            conda env create -f environment.yml
+            conda activate microscopy
+            ./run_tests.sh
