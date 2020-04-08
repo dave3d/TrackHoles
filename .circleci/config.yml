@@ -29,6 +29,6 @@ jobs:
             which python
             python --version
             which conda
-            conda --version
             conda --list
             conda update --all
+            ls
