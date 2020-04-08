@@ -26,7 +26,6 @@ jobs:
             which conda
             conda update --all
             conda init bash
-            bash
             ls
             conda install -f environment.yml
             ./run_tests.sh
