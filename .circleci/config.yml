@@ -25,7 +25,7 @@ jobs:
             python --version
             which conda
             conda update --all
-            conda init bash
             ls
             bash -c "conda env create -f environment.yml"
+            bash -c "conda init bash"
             bash -c "conda activate microscopy; ./run_tests.sh"
