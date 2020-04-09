@@ -13,19 +13,17 @@ workflows:
 jobs:
   mytest:
     docker:
-      - image: continuumio/miniconda3
+      - image: circleci/python
 
     steps:
       - checkout
 
       - run:
-          name: Setup Anacoda
+          name: test my stuff
           command: |
             which python
             python --version
-            which conda
-            conda update --all
+            pip install -r requirements.txt
             ls
-            bash -c "conda env create -f environment.yml"
-            bash -c "conda init bash"
-            bash -c "conda activate microscopy; ./run_tests.sh"
+            pip list
+            bash run_tests.sh
