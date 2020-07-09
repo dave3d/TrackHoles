@@ -20,7 +20,7 @@ def draw_ellipses(img, ellipses):
         dot_img[x,y,z] = 255
 
     # dilate the centers to make them bigger
-    dot_img=sitk.GrayscaleDilate(dot_img, 3)
+    dot_img=sitk.GrayscaleDilate(dot_img, [3,3,3])
 
     img2 = img*255
 
