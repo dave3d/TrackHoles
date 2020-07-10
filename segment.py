@@ -2,6 +2,7 @@
 
 import SimpleITK as sitk
 
+
 def segmentBackground(img, thresholds=[15000, 36000]):
     """ Segment an image background.
 
@@ -12,13 +13,13 @@ def segmentBackground(img, thresholds=[15000, 36000]):
     for these microscopy images, so that's the default.
     """
 
-    thresh = sitk.Median(sitk.BinaryThreshold(img, thresholds[0], thresholds[1]),[2,2])
-    erode = sitk.BinaryErode(thresh,[1,1])
+    thresh = sitk.Median(sitk.BinaryThreshold(img, thresholds[0],
+                                              thresholds[1]), [2, 2])
+    erode = sitk.BinaryErode(thresh, [1, 1])
 
     # selects the largest connected component
-    connected = sitk.Cast(sitk.ConnectedComponent(erode), sitk.sitkUInt8)==1
+    connected = sitk.Cast(sitk.ConnectedComponent(erode), sitk.sitkUInt8) == 1
     return connected
-
 
 
 def segmentSeriesBackgrounds(images, thresholds=[15000, 36000]):
@@ -34,7 +35,7 @@ def segmentSeriesBackgrounds(images, thresholds=[15000, 36000]):
     if not hasattr(images, '__iter__'):
         return []
 
-    bg=[]
+    bg = []
     for i in images:
         bg.append(segmentBackground(i, thresholds))
 

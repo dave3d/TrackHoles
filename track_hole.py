@@ -3,6 +3,7 @@
 import SimpleITK as sitk
 import find_ellipse
 
+
 def track_hole(seed, radius, slices, first_z=0, debugFlag=False):
     """ Track a hole through a series of images.
 
@@ -19,18 +20,19 @@ def track_hole(seed, radius, slices, first_z=0, debugFlag=False):
     for b in slices:
 
         # skip slices before the first_z slice we picked our seeds on
-        if z<first_z:
-            z = z+1
+        if z < first_z:
+            z = z + 1
             continue
         # invert the background image to get the hole label image
-        label_img = 1-b
-        center, axes = find_ellipse.find_ellipse(label_img, s, radius, debugFlag)
+        label_img = 1 - b
+        center, axes = find_ellipse.find_ellipse(label_img, s, radius,
+                                                 debugFlag)
 
-        if center==None:
-            print("Failed on seed", seed, "Z=",z)
+        if center is None:
+            print("Failed on seed", seed, "Z=", z)
             try:
                 sitk.Show(label_img)
-            except:
+            except BaseException:
                 print("No show")
             break
 
@@ -44,6 +46,6 @@ def track_hole(seed, radius, slices, first_z=0, debugFlag=False):
 
         # set this ellipse center as the seed for the next Z image
         s = center
-        z=z+1
+        z = z + 1
 
     return all_ellipses
